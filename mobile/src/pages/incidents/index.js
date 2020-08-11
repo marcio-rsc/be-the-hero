@@ -22,13 +22,13 @@ export default function Incidents() {
     }
 
     async function loadIncidents() {
-        if (loading){
-            return;
-        }
-
-        if (total >0 && incidents.length == total) {
-            return;
-        }
+        // if (loading){
+        //     return;
+        // }
+        // //setTotal(0);
+        // if (total >0 && incidents.length == total) {
+        //      return;
+        // }
 
         setLoading(true);
 
@@ -37,7 +37,8 @@ export default function Incidents() {
         });
 
         setIncidents([... incidents, ... response.data]);
-        setTotal(response.headers['X-total-count']);
+        setTotal(response.headers['X-Total-Count']);
+        //setTotal(response.headers['X-Total-Count']);
         setPage(page + 1);
         setLoading(false);
     }
